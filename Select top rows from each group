@@ -1,3 +1,4 @@
+# partition By variables will let you select values over each group 
 SELECT
 var1, var2,
 ROW_NUMBER() OVER (PARTITION BY var3, var4 ORDER BY var5 DESC) as row_num,
