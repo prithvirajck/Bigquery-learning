@@ -12,4 +12,4 @@ SELECT
 
 user_query_df = gbq.read_gbq(user_query, project_id='projectId')
 
-gbq.to_gbq(user_query_df, 'test.autoquery_table', 'projectId', chunksize=10000, verbose=True)
+gbq.to_gbq(user_query_df, 'test.autoquery_table', 'projectId', if_exists='append', chunksize=10000, verbose=True)
