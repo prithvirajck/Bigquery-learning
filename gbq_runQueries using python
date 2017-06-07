@@ -1,0 +1,15 @@
+# Run a query on BigQuery and create a table 'autoquery_table' under 'test' data set
+
+import pandas as pd
+from pandas.io import gbq
+
+user_query = """
+SELECT
+   *
+ FROM
+    tbl
+"""
+
+user_query_df = gbq.read_gbq(user_query, project_id='projectId')
+
+gbq.to_gbq(user_query_df, 'test.autoquery_table', 'projectId', chunksize=10000, verbose=True)
