@@ -1,0 +1,17 @@
+SELECT
+x,y
+from (
+SELECT
+CONCAT(fullVisitorId, STRING(visitId)) as sessionID,
+y,
+    FROM tbl
+    ) s0
+    LEFT JOIN EACH (
+  CONCAT(fullVisitorId, STRING(visitId)) as sessionID,
+y,
+    FROM tbl
+    ) s1
+    ON
+    s0.sessionID = s1.sessionID
+    GROUP BY
+    s0.sessionID = s1.sessionID
